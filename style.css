@@ -58,6 +58,9 @@ body main section#login form {
   justify-content: center;
   gap: 3rem;
 }
+body main section#login form .title h1 {
+  color: #333;
+}
 body main section#login form .inputs {
   display: flex;
   flex-direction: column;
@@ -92,4 +95,16 @@ body main section#login form .inputs .info .graphics .block {
   height: 10px;
   width: 26px;
   border-radius: 20px;
+}
+body main section#login form .inputs .info .graphics .s1 {
+  background-color: red;
+}
+body main section#login form .inputs .info .graphics .s2 {
+  background-color: orange;
+}
+body main section#login form .inputs .info .graphics .s3 {
+  background-color: yellow;
+}
+body main section#login form .inputs .info .graphics .s4 {
+  background-color: green;
 }/*# sourceMappingURL=style.css.map */

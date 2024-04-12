@@ -59,6 +59,9 @@ body {
 
                 .title {
 
+                    h1 {
+                        color: #333;
+                    }
                 }
 
                 .inputs {
@@ -97,6 +100,10 @@ body {
                                 width: 26px;
                                 border-radius: 20px;
                             }
+                            .s1 {background-color: red}
+                            .s2 {background-color: orange}
+                            .s3 {background-color: yellow}
+                            .s4 {background-color: green}
                         }
                     }
                 }
