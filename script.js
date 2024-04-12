@@ -39,7 +39,7 @@ function containsChar(string) {
 //checks if a string contains any digit
 function containsNumber(string) {return /\d/.test(string)}
 
-//checks if a string contains any speccial characters
+//checks if a string contains any special characters
 function containsSpecialChar(string) {
     const  specialChars = /[ `!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?~]/;
     return specialChars.test(string);
