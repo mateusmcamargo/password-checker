@@ -45,11 +45,18 @@ function containsSpecialChar(string) {
     return specialChars.test(string);
 }
 
+//checks if a string contains any number orspecial characters
+function containsDifferent(string) {
+    const  specialChars = /[ `!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?~]/;
+    return specialChars.test(string) || /\d/.test(string);
+}
+
 //validate pattern requirements
 function patternValidade(string) {
-    if (containsChar(string))   pattern[0] = true; else pattern[0] = false
-    if (containsNumber(string)) pattern[1] = true; else pattern[1] = false 
-    if (string.length >= 8)     pattern[2] = true; else pattern[2] = false
+    if (containsUppercase(string))   pattern[0] = true; else pattern[0] = false
+    if (containsLowercase(string))   pattern[1] = true; else pattern[1] = false
+    if (containsDifferent(string))   pattern[2] = true; else pattern[2] = false 
+    if (string.length >= 8)          pattern[3] = true; else pattern[3] = false
 }
 
 inputPassword.addEventListener('input', (e) => {

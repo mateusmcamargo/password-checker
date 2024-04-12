@@ -35,7 +35,7 @@ body main {
 }
 body main section#login {
   width: 90%;
-  height: 60%;
+  min-height: 60%;
   background-color: white;
   border-radius: 40px;
   display: flex;
@@ -56,33 +56,42 @@ body main section#login form .title h1 {
   color: #333;
 }
 body main section#login form .inputs {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.6rem;
+  gap: 1.8rem;
 }
 body main section#login form .inputs input {
+  width: calc(75% - 16px);
+  height: 28px;
   background-color: #ccc;
   padding: 4px 16px;
   border-radius: 20px;
 }
 body main section#login form .inputs input[type=submit] {
-  padding: 8px 20px;
+  width: 30%;
+  height: 36px;
+  font-weight: 500;
 }
 body main section#login form .inputs .info {
-  width: 100%;
-  align-self: flex-start;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
 }
 body main section#login form .inputs .info p {
   font-weight: 500;
 }
 body main section#login form .inputs .info .graphics {
-  width: 50%;
-  height: 2rem;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 4px;
 }
 body main section#login form .inputs .info .graphics .block {
   background-color: #ccc;
@@ -100,5 +109,38 @@ body main section#login form .inputs .info .graphics .s3 {
   background-color: yellow;
 }
 body main section#login form .inputs .info .graphics .s4 {
+  background-color: green;
+}
+body main section#login form .inputs .requirements {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}
+body main section#login form .inputs .requirements p {
+  font-weight: 500;
+}
+body main section#login form .inputs .requirements ul {
+  width: 100%;
+}
+body main section#login form .inputs .requirements ul li {
+  padding: 4px;
+  font-weight: 400;
+}
+body main section#login form .inputs .requirements ul li i {
+  padding-right: 8px;
+}
+body main section#login form .inputs .requirements ul .s1 {
+  background-color: red;
+}
+body main section#login form .inputs .requirements ul .s2 {
+  background-color: orange;
+}
+body main section#login form .inputs .requirements ul .s3 {
+  background-color: yellow;
+}
+body main section#login form .inputs .requirements ul .s4 {
   background-color: green;
 }/*# sourceMappingURL=style.css.map */

@@ -33,7 +33,7 @@ body {
 
         section#login {
             width: 90%;
-            height: 60%;
+            min-height: 60%;
             background-color: white;
             border-radius: 40px;
             display: flex;
@@ -53,36 +53,75 @@ body {
                 .title {h1 {color: #333}}
 
                 .inputs {
+                    width: 100%;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    gap: 1.6rem;
+                    gap: 1.8rem;
 
                     input {
+                        width:  calc(75% - 16px);
+                        height: calc(36px - 8px);
                         background-color: #ccc;
                         padding: 4px 16px;
                         border-radius: 20px;
                     }
-                    input[type="submit"] {padding: 8px 20px}
+                    input[type="submit"] {
+                        width: 30%;
+                        height: 36px;
+                        font-weight: 500;
+                    }
 
                     .info {
-                        width: 100%;
-                        align-self: flex-start;
+                        width: 75%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+                        gap: 12px;
 
                         p {font-weight: 500}
 
                         .graphics {
-                            width: 50%;
-                            height: 2rem;
+                            width: 100%;
                             display: flex;
                             align-items: center;
-                            justify-content: space-between;
+                            justify-content: flex-start;
+                            gap: 4px;
                             .block {
                                 background-color: #ccc;
                                 height: 10px;
                                 width: 2.4rem;
                                 border-radius: 20px;
+                            }
+                            .s1 {background-color: red}
+                            .s2 {background-color: orange}
+                            .s3 {background-color: yellow}
+                            .s4 {background-color: green}
+                        }
+                    }
+
+                    .requirements {
+                        width: 75%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+                        gap: 12px;
+
+                        p {font-weight: 500}
+
+                        ul {
+                            width: 100%;
+
+                            li {
+                                padding: 4px;
+                                font-weight: 400;
+
+                                i {
+                                    padding-right: 8px;
+                                }
                             }
                             .s1 {background-color: red}
                             .s2 {background-color: orange}
