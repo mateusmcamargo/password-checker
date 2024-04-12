@@ -51,6 +51,16 @@ function containsDifferent(string) {
     return specialChars.test(string) || /\d/.test(string);
 }
 
+//checks for repeating characters
+function repeatingChar(string) {
+    for (let i = 0; i < string.length; i ++) {
+        if (string[i] === string[i+1] && string[i] === string[i+2]) {
+            return true;
+        }
+    }
+    return false;
+}
+
 //validate pattern requirements
 function patternValidade(string) {
     if (containsUppercase(string))   pattern[0] = true; else pattern[0] = false
@@ -59,12 +69,17 @@ function patternValidade(string) {
     if (string.length >= 8)          pattern[3] = true; else pattern[3] = false
 }
 
+
 inputPassword.addEventListener('input', (e) => {
     console.log(pattern);
     var val = e.target.value;
-    patternValidade(val);
     
-    for (var i = 0; i < pattern.length; i ++) {
+    //check passoword strength
+    console.log(repeatingChar(val));
+    
+    //check for patterns requirements
+    patternValidade(val);
+    for (let i = 0; i < pattern.length; i ++) {
         switch(pattern[i]) {
             
             case false:
