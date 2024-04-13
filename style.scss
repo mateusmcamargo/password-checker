@@ -61,16 +61,17 @@ body {
                     gap: 1.8rem;
 
                     input {
-                        width:  calc(75% - 16px);
+                        width:  calc(75% - 48px);
                         height: calc(36px - 8px);
                         background-color: #ccc;
-                        padding: 4px 16px;
+                        padding: 4px 24px;
                         border-radius: 20px;
                     }
                     input[type="submit"] {
                         width: 30%;
                         height: 36px;
                         font-weight: 500;
+                        margin-top: 1rem;
                     }
 
                     .info {

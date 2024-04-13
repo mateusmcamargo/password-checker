@@ -6,13 +6,15 @@ var strength = 0;
 var pattern  = [
     false,
     false,
+    false,
     false
 ];
 const parameters = [
-{name: 'lenght', value: false},
-{name: 'number', value: false},
-{name: 'schar' , value: false},
-{name: 'upper' , value: false},
+{name: 'lenght', value: false, checked: false}, //lenght > 8 && < 20
+{name: 'number', value: false, checked: false}, //number
+{name: 'schar' , value: false, checked: false}, //special char
+{name: 'upper' , value: false, checked: false}, //uppercase
+{name: 'norep' , value: false, checked: false}, //no-repeating char
 ];
 
 
@@ -37,7 +39,9 @@ function containsChar(string) {
 }
 
 //checks if a string contains any digit
-function containsNumber(string) {return /\d/.test(string)}
+function containsNumber(string) {
+    return /\d/.test(string);
+}
 
 //checks if a string contains any special characters
 function containsSpecialChar(string) {
@@ -61,22 +65,122 @@ function repeatingChar(string) {
     return false;
 }
 
+//tests for a specific lenght
+function lengthInterval(string, min, max) {
+    return string.length >= min && string.length <= max;
+}
+
 //validate pattern requirements
 function patternValidade(string) {
-    if (containsUppercase(string))   pattern[0] = true; else pattern[0] = false
-    if (containsLowercase(string))   pattern[1] = true; else pattern[1] = false
+    if (containsLowercase(string))   pattern[0] = true; else pattern[0] = false
+    if (containsUppercase(string))   pattern[1] = true; else pattern[1] = false
     if (containsDifferent(string))   pattern[2] = true; else pattern[2] = false 
     if (string.length >= 8)          pattern[3] = true; else pattern[3] = false
 }
 
-
+/*
+{name: 'lenght', value: false}, //lenght > 8 && < 20
+{name: 'number', value: false}, //number
+{name: 'schar' , value: false}, //special char
+{name: 'upper' , value: false}, //uppercase
+{name: 'norep' , value: false}, //no-repeating char
+*/
 inputPassword.addEventListener('input', (e) => {
-    console.log(pattern);
     var val = e.target.value;
     
     //check passoword strength
-    console.log(repeatingChar(val));
+    parameters[0].value = lengthInterval(val, 10, 20);
+    parameters[1].value = containsNumber(val);
+    parameters[2].value = containsSpecialChar(val);
+    parameters[3].value = containsUppercase(val);
+    parameters[4].value = !repeatingChar(val);
+
+    for (let i = 0; i < parameters.length; i ++) {
     
+        switch(parameters[i].value) {
+            case false:
+                if (parameters[i].checked === true) {strength --}
+                parameters[i].checked = false;
+            break;
+
+            case true:
+                if (parameters[i].checked === false) {strength ++}
+                parameters[i].checked = true;
+            break;
+        }
+    }
+
+
+
+    switch(strength) {
+
+        case 0:
+            for (let i = 0; i < block.length; i ++) {
+                block[i].classList.remove('s1');
+                block[i].classList.remove('s2');
+                block[i].classList.remove('s3');
+                block[i].classList.remove('s4');
+            }
+        break;
+
+        case 1:
+            if (val === "") {                
+                for (let i = 0; i < block.length; i ++) {
+                    block[i].classList.remove('s1');
+                    block[i].classList.remove('s2');
+                    block[i].classList.remove('s3');
+                    block[i].classList.remove('s4');
+                }
+            }
+        break;
+
+        case 2:
+            block[0].classList.add('s1');
+
+            for (let i = 0; i < block.length; i ++) {
+                block[i].classList.remove('s2');
+                block[i].classList.remove('s3');
+                block[i].classList.remove('s4');
+            }
+        break;
+
+        case 3:
+            block[0].classList.add('s2');
+            block[1].classList.add('s2');
+
+            for (let i = 0; i < block.length; i ++) {
+                block[i].classList.remove('s3');
+                block[i].classList.remove('s4');
+            }
+        break;
+            
+        case 4:
+            block[0].classList.add('s3');
+            block[1].classList.add('s3');
+            block[2].classList.add('s3');
+
+            for (let i = 0; i < block.length; i ++) {
+                block[i].classList.remove('s4');
+            }
+        break;
+
+        case 5:
+            block[0].classList.add('s4');
+            block[1].classList.add('s4');
+            block[2].classList.add('s4');
+            block[3].classList.add('s4');
+        break;
+    }
+
+    //debug
+    console.log('lenght    ' + parameters[0].value + ' ' + parameters[0].checked);
+    console.log('number    ' + parameters[1].value + ' ' + parameters[1].checked);
+    console.log('schar     ' + parameters[2].value + ' ' + parameters[2].checked);
+    console.log('upper     ' + parameters[3].value + ' ' + parameters[3].checked);
+    console.log('norep     ' + parameters[4].value + ' ' + parameters[4].checked);
+    console.log('STRENGTH  ' + strength);
+    console.log('---');
+
     //check for patterns requirements
     patternValidade(val);
     for (let i = 0; i < pattern.length; i ++) {
@@ -132,6 +236,10 @@ inputPassword.addEventListener('input', (e) => {
 });
 
 /*
-comprimento
+
+sequencias:
+abc...
+123...
+!@#...
 
 */

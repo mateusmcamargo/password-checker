@@ -64,16 +64,17 @@ body main section#login form .inputs {
   gap: 1.8rem;
 }
 body main section#login form .inputs input {
-  width: calc(75% - 16px);
+  width: calc(75% - 48px);
   height: 28px;
   background-color: #ccc;
-  padding: 4px 16px;
+  padding: 4px 24px;
   border-radius: 20px;
 }
 body main section#login form .inputs input[type=submit] {
   width: 30%;
   height: 36px;
   font-weight: 500;
+  margin-top: 1rem;
 }
 body main section#login form .inputs .info {
   width: 75%;
