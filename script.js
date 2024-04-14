@@ -1,13 +1,15 @@
+//get elements
 const inputPassword = document.getElementById('password');
 const block         = document.querySelectorAll('.block');
 const patternCheck  = document.querySelectorAll('.patternCheck');
 
+//strenght and parameters
 var strength = 0;
 var pattern  = [
-    false,
-    false,
-    false,
-    false
+    false, //lowercase
+    false, //uppercase
+    false, //number or special char
+    false //minimum of 8 chars
 ];
 const parameters = [
 {name: 'lenght', value: false, checked: false}, //lenght > 8 && < 20
@@ -85,7 +87,9 @@ function patternValidade(string) {
 {name: 'upper' , value: false}, //uppercase
 {name: 'norep' , value: false}, //no-repeating char
 */
+//event listener for password input
 inputPassword.addEventListener('input', (e) => {
+    //get password input value
     var val = e.target.value;
     
     //check passoword strength
@@ -95,8 +99,26 @@ inputPassword.addEventListener('input', (e) => {
     parameters[3].value = containsUppercase(val);
     parameters[4].value = !repeatingChar(val);
 
+    //check for patterns requirements and add styling classes to font awesome icons
+    patternValidade(val);
+    for (let i = 0; i < pattern.length; i ++) {
+        switch(pattern[i]) {
+            
+            case false:
+                patternCheck[i].classList.remove('fa-square-check');
+                patternCheck[i].classList.add('fa-square');
+            break;
+                
+            case true:
+                patternCheck[i].classList.remove('fa-square');
+                patternCheck[i].classList.add('fa-square-check');
+            break;
+        }
+    }
+
+    //check for strenght parameters requirements and change strenght var value
     for (let i = 0; i < parameters.length; i ++) {
-    
+
         switch(parameters[i].value) {
             case false:
                 if (parameters[i].checked === true) {strength --}
@@ -110,8 +132,7 @@ inputPassword.addEventListener('input', (e) => {
         }
     }
 
-
-
+    //add and remove styling to blocks based on the value of the strenght var
     switch(strength) {
 
         case 0:
@@ -172,6 +193,8 @@ inputPassword.addEventListener('input', (e) => {
         break;
     }
 
+
+
     //debug
     console.log('lenght    ' + parameters[0].value + ' ' + parameters[0].checked);
     console.log('number    ' + parameters[1].value + ' ' + parameters[1].checked);
@@ -180,23 +203,7 @@ inputPassword.addEventListener('input', (e) => {
     console.log('norep     ' + parameters[4].value + ' ' + parameters[4].checked);
     console.log('STRENGTH  ' + strength);
     console.log('---');
-
-    //check for patterns requirements
-    patternValidade(val);
-    for (let i = 0; i < pattern.length; i ++) {
-        switch(pattern[i]) {
-            
-            case false:
-                patternCheck[i].classList.remove('fa-square-check');
-                patternCheck[i].classList.add('fa-square');
-            break;
-                
-            case true:
-                patternCheck[i].classList.remove('fa-square');
-                patternCheck[i].classList.add('fa-square-check');
-            break;
-        }
-    }
+    
     /*
     if (val === "") {
         strength = 0;

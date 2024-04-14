@@ -19,10 +19,16 @@
 h1 {
   font-size: 2.8rem;
   font-weight: 600;
+  color: #00224D;
+}
+
+p {
+  font-weight: 500;
+  color: #00224D;
 }
 
 body {
-  background-color: #ccc;
+  background: linear-gradient(135deg, #c1fffb 0%, #9ce8ff 100%);
   width: 100vw;
   height: 100vh;
 }
@@ -35,8 +41,8 @@ body main {
 }
 body main section#login {
   width: 90%;
-  min-height: 60%;
-  background-color: white;
+  height: 70%;
+  background-color: #FFF7FC;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
@@ -52,9 +58,6 @@ body main section#login form {
   justify-content: center;
   gap: 3rem;
 }
-body main section#login form .title h1 {
-  color: #333;
-}
 body main section#login form .inputs {
   width: 100%;
   display: flex;
@@ -66,7 +69,7 @@ body main section#login form .inputs {
 body main section#login form .inputs input {
   width: calc(75% - 48px);
   height: 28px;
-  background-color: #ccc;
+  background-color: #e4e9e9;
   padding: 4px 24px;
   border-radius: 20px;
 }
@@ -84,9 +87,6 @@ body main section#login form .inputs .info {
   justify-content: center;
   gap: 12px;
 }
-body main section#login form .inputs .info p {
-  font-weight: 500;
-}
 body main section#login form .inputs .info .graphics {
   width: 100%;
   display: flex;
@@ -95,22 +95,22 @@ body main section#login form .inputs .info .graphics {
   gap: 4px;
 }
 body main section#login form .inputs .info .graphics .block {
-  background-color: #ccc;
+  background-color: #e4e9e9;
   height: 10px;
   width: 2.4rem;
   border-radius: 20px;
 }
 body main section#login form .inputs .info .graphics .s1 {
-  background-color: red;
+  background-color: #D20062;
 }
 body main section#login form .inputs .info .graphics .s2 {
-  background-color: orange;
+  background-color: #F7C566;
 }
 body main section#login form .inputs .info .graphics .s3 {
-  background-color: yellow;
+  background-color: #F9E897;
 }
 body main section#login form .inputs .info .graphics .s4 {
-  background-color: green;
+  background-color: #8DECB4;
 }
 body main section#login form .inputs .requirements {
   width: 75%;
@@ -120,15 +120,13 @@ body main section#login form .inputs .requirements {
   justify-content: center;
   gap: 12px;
 }
-body main section#login form .inputs .requirements p {
-  font-weight: 500;
-}
 body main section#login form .inputs .requirements ul {
   width: 100%;
 }
 body main section#login form .inputs .requirements ul li {
   padding: 4px;
   font-weight: 400;
+  color: #31363F;
 }
 body main section#login form .inputs .requirements ul li i {
   padding-right: 8px;
