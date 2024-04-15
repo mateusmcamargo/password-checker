@@ -83,6 +83,7 @@ function patternValidade(string) {
     if (string.length >= 8)          pattern[3] = true; else pattern[3] = false
 }
 
+//event listener for password input
 /*
 {name: 'lenght', value: false}, //lenght > 8 && < 20
 {name: 'number', value: false}, //number
@@ -90,7 +91,6 @@ function patternValidade(string) {
 {name: 'upper' , value: false}, //uppercase
 {name: 'norep' , value: false}, //no-repeating char
 */
-//event listener for password input
 inputPassword.addEventListener('input', (e) => {
     //get password input value
     var val = e.target.value;
@@ -196,8 +196,6 @@ inputPassword.addEventListener('input', (e) => {
         break;
     }
 
-
-
     //debug
     console.log('lenght    ' + parameters[0].value + ' ' + parameters[0].checked);
     console.log('number    ' + parameters[1].value + ' ' + parameters[1].checked);
@@ -244,6 +242,7 @@ inputPassword.addEventListener('input', (e) => {
         block[3].classList.add('s4');
     }   */
 });
+
 /*
 inputSubmit.addEventListener('click', () => {
 
@@ -257,6 +256,7 @@ function submitForm(e) {
 
     return false;
 }
+
 /*
 
 sequencias:
