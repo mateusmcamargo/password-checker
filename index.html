@@ -21,8 +21,15 @@
 
 <body>
     <main>
+        <section id="alert" class="invisible">
+            <div class="box">
+                <h2>senha cadastrada</h2>
+                <p>força: ---</p>
+            </div><!--box-->
+        </section><!--alert-->
+
         <section id="login">
-            <form action="">
+            <form onsubmit="submitForm(e)">
                 <div class="title">
                     <h1>nova senha</h1>
                 </div><!--title-->
@@ -54,7 +61,7 @@
                         </ul>
                     </div><!--requirements-->
 
-                    <input type="submit" value="entrar">
+                    <input type="submit" id="submit" value="entrar">
                 </div><!--inputs-->
             </form>
         </section><!--login-->
