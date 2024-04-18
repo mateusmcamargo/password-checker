@@ -246,7 +246,7 @@ inputPassword.addEventListener('input', (e) => {
 });
 
 //prevent form from restarting page
-function handleForm(event) { event.preventDefault(); }
+function handleForm(e) {e.preventDefault();}
 form.addEventListener('submit', handleForm);
 
 //event listener for submit
