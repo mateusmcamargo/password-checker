@@ -1,10 +1,12 @@
 //get elements
+const form          = document.querySelector("form");
 const inputPassword = document.getElementById('password');
 const inputSubmit   = document.getElementById('submit');
 const block         = document.querySelectorAll('.block');
 const patternCheck  = document.querySelectorAll('.patternCheck');
 const sectionAlert  = document.getElementById('alert');
 const boxP          = document.querySelector('.box p');
+const boxSpan       = document.querySelector('.box span');
 
 //strenght and parameters
 var strength = 0;
@@ -177,7 +179,7 @@ inputPassword.addEventListener('input', (e) => {
                 block[i].classList.remove('s4');
             }
         break;
-            
+        
         case 4:
             block[0].classList.add('s3');
             block[1].classList.add('s3');
@@ -243,20 +245,16 @@ inputPassword.addEventListener('input', (e) => {
     }   */
 });
 
-/*
+//prevent form from restarting page
+function handleForm(event) { event.preventDefault(); }
+form.addEventListener('submit', handleForm);
+
+//event listener for submit
 inputSubmit.addEventListener('click', () => {
-
-});
-*/
-function submitForm(e) {
-    e.preventDefault();
-
     sectionAlert.classList.remove('invisible');
-    boxP.innerHTML = "força: " + strength; 
-
-    return false;
-}
-
+    boxP.innerHTML = "força: ";
+    boxSpan.innerHTML = "" + strength;
+});
 /*
 
 sequencias:
